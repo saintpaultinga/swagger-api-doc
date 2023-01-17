@@ -1,0 +1,784 @@
+openapi: "3.0.1"
+info:
+  title: "Mobile Mock Live Apis"
+  description: "Created by AWS Lambda"
+  version: "2020-07-31T16:01:47Z"
+paths:
+  /api/v2/search/providers:
+    get:
+      parameters:
+      - name: "entityType"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "query"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "lob"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "pageSize"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "sorting"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "company"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "pcpId"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "page"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "fq"
+        in: "query"
+        required: false
+        type: "string"
+      responses: {}
+      security:
+      - AzureAuthorizer: []
+      x-amazon-apigateway-integration:
+        uri: 
+          Fn::Sub: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/${EntitySearchV2Arn}/invocations"
+        httpMethod: "POST"
+        passthroughBehavior: "when_no_match"
+        type: "aws_proxy"
+    options:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS, GET'"
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,Authorization,X-Amz-Date,X-API-Key,X-Amz-Security-Token,Accept-Language'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+            responseTemplates:
+              application/json: "{}\n"
+        requestTemplates:
+          application/json: "{\n  \"statusCode\" : 200\n}\n"
+        passthroughBehavior: "when_no_match"
+        type: "mock"
+  /api/v2/search/providers/specialties:
+    get:
+      responses: {}
+      security:
+      - AzureAuthorizer: []
+      x-amazon-apigateway-integration:
+        uri: 
+          Fn::Sub: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/${ProviderSearchV2Arn}/invocations"
+        httpMethod: "POST"
+        passthroughBehavior: "when_no_match"
+        type: "aws_proxy"
+    options:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS, GET'"
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,Authorization,X-Amz-Date,X-API-Key,X-Amz-Security-Token,Accept-Language'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+            responseTemplates:
+              application/json: "{}\n"
+        requestTemplates:
+          application/json: "{\n  \"statusCode\" : 200\n}\n"
+        passthroughBehavior: "when_no_match"
+        type: "mock"
+  /api/v2/search/providers/{id}:
+    get:
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "string"
+      responses: {}
+      security:
+      - AzureAuthorizer: []
+      x-amazon-apigateway-integration:
+        uri: 
+          Fn::Sub: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/${ProviderSearchV2Arn}/invocations"
+        httpMethod: "POST"
+        passthroughBehavior: "when_no_match"
+        type: "aws_proxy"
+    options:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS, GET'"
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,Authorization,X-Amz-Date,X-API-Key,X-Amz-Security-Token,Accept-Language'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+            responseTemplates:
+              application/json: "{}\n"
+        requestTemplates:
+          application/json: "{\n  \"statusCode\" : 200\n}\n"
+        passthroughBehavior: "when_no_match"
+        type: "mock"
+  /api/v3/providers/search:
+    get:
+      parameters:
+      - name: "ada"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "lat"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "areaOfExpertise"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "Accept-Language"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "autoCorrectEnabled"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "wheelchair"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "phone"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "specialty"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "hfProviderId"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "hospitalAffiliation"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "pageSize"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "onlyPcps"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "lon"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "openWeekends"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "lob"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "distance"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "acceptingAge"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "languages"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "boardCertified"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "entityType"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "query"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "gender"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "openNow"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "sorting"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "company"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "openEvenings"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "offersTelemedicine"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "page"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "acceptingNewPatients"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "zipCode"
+        in: "query"
+        required: false
+        type: "string"
+      responses: {}
+      security:
+      - AzureAuthorizer: []
+      x-amazon-apigateway-integration:
+        httpMethod: "POST"
+        uri: 
+          Fn::Sub: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/${ProviderSearchV3Arn}/invocations"
+        passthroughBehavior: "when_no_match"
+        type: "aws_proxy"
+    options:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS, GET'"
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,Authorization,X-Amz-Date,X-API-Key,X-Amz-Security-Token,Accept-Language'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+            responseTemplates:
+              application/json: "{}\n"
+        requestTemplates:
+          application/json: "{\n  \"statusCode\" : 200\n}\n"
+        passthroughBehavior: "when_no_match"
+        type: "mock"
+  /api/v3/providers/suggest:
+    get:
+      parameters:
+      - name: "query"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "company"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "lob"
+        in: "query"
+        required: false
+        type: "string"
+      responses: {}
+      security:
+      - AzureAuthorizer: []
+      x-amazon-apigateway-integration:
+        uri: 
+          Fn::Sub: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/${ProviderSuggestV3Arn}/invocations"
+        httpMethod: "POST"
+        passthroughBehavior: "when_no_match"
+        type: "aws_proxy"
+    options:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS, GET'"
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,Authorization,X-Amz-Date,X-API-Key,X-Amz-Security-Token,Accept-Language'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+            responseTemplates:
+              application/json: "{}\n"
+        requestTemplates:
+          application/json: "{\n  \"statusCode\" : 200\n}\n"
+        passthroughBehavior: "when_no_match"
+        type: "mock"
+  /api/v3/providers/{id}:
+    get:
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "string"
+      responses: {}
+      security:
+      - AzureAuthorizer: []
+      x-amazon-apigateway-integration:
+        uri: 
+          Fn::Sub: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/${ProviderDetailsV3Arn}/invocations"
+        httpMethod: "POST"
+        passthroughBehavior: "when_no_match"
+        type: "aws_proxy"
+    options:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS, GET'"
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,Authorization,X-Amz-Date,X-API-Key,X-Amz-Security-Token,Accept-Language'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+            responseTemplates:
+              application/json: "{}\n"
+        requestTemplates:
+          application/json: "{\n  \"statusCode\" : 200\n}\n"
+        passthroughBehavior: "when_no_match"
+        type: "mock"
+  /api/v3/specialties/search:
+    get:
+      parameters:
+      - name: "query"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "company"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "lob"
+        in: "query"
+        required: false
+        type: "string"
+      responses: {}
+      security:
+      - AzureAuthorizer: []
+      x-amazon-apigateway-integration:
+        uri: 
+          Fn::Sub: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/${SpecialtySearchV3Arn}/invocations"
+        httpMethod: "POST"
+        passthroughBehavior: "when_no_match"
+        type: "aws_proxy"
+    options:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS, GET'"
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,Authorization,X-Amz-Date,X-API-Key,X-Amz-Security-Token,Accept-Language'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+            responseTemplates:
+              application/json: "{}\n"
+        requestTemplates:
+          application/json: "{\n  \"statusCode\" : 200\n}\n"
+        passthroughBehavior: "when_no_match"
+        type: "mock"
+  /api/v3/specialties/common:
+    get:
+      parameters:
+      - name: "company"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "lob"
+        in: "query"
+        required: false
+        type: "string"
+      responses: {}
+      security:
+      - AzureAuthorizer: []
+      x-amazon-apigateway-integration:
+        type: "aws_proxy"
+        uri: 
+          Fn::Sub: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/${CommonSearchV3Arn}/invocations"
+        httpMethod: "POST"
+        passthroughBehavior: "when_no_match"
+    options:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+      x-amazon-apigateway-integration:
+        type: "mock"
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS, GET'"
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,Authorization,X-Amz-Date,X-API-Key,X-Amz-Security-Token,Accept-Language'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+            responseTemplates:
+              application/json: "{}\n"
+        requestTemplates:
+          application/json: "{\n  \"statusCode\" : 200\n}\n"
+        passthroughBehavior: "when_no_match"  
+  
+  /api/v3/hospitals/search:
+    get:
+      parameters:
+      - name: "company"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "lob"
+        in: "query"
+        required: false
+        type: "string"
+      responses: {}
+      security:
+      - AzureAuthorizer: []
+      x-amazon-apigateway-integration:
+        type: "aws_proxy"
+        uri: 
+          Fn::Sub: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/${HospitalSearchV3Arn}/invocations"
+        httpMethod: "POST"
+        passthroughBehavior: "when_no_match"
+    options:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+      x-amazon-apigateway-integration:
+        type: "mock"
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS, GET'"
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,Authorization,X-Amz-Date,X-API-Key,X-Amz-Security-Token,Accept-Language'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+            responseTemplates:
+              application/json: "{}\n"
+        requestTemplates:
+          application/json: "{\n  \"statusCode\" : 200\n}\n"
+        passthroughBehavior: "when_no_match"  
+  /api/v1/benefits:
+    get:
+      parameters:
+      - name: "benefitPackage"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "groupNumber"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "year"
+        in: "query"
+        required: true
+      responses: {}
+      security:
+      - AzureAuthorizer: []
+      x-amazon-apigateway-integration:
+        httpMethod: "POST"
+        uri: 
+          Fn::Sub: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/${BenefitsArn}/invocations"
+        passthroughBehavior: "when_no_match"
+        type: "aws_proxy"
+    options:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET,POST'"
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+            responseTemplates:
+              application/json: "{}\n"
+        requestTemplates:
+          application/json: "{\n  \"statusCode\" : 200\n}\n"
+        passthroughBehavior: "when_no_match"
+        type: "mock"  
+  
+  /api/v1/benefits/{id}:
+    get:
+      parameters:
+      - name: "benefitPackage"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "groupNumber"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "year"
+        in: "query"
+        required: true
+      - name: "id"
+        in: "path"
+        required: true
+      responses: {}
+      security:
+      - AzureAuthorizer: []
+      x-amazon-apigateway-integration:
+        httpMethod: "POST"
+        uri: 
+          Fn::Sub: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/${BenefitsIdArn}/invocations"
+        passthroughBehavior: "when_no_match"
+        type: "aws_proxy"
+    options:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET,POST'"
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+            responseTemplates:
+              application/json: "{}\n"
+        requestTemplates:
+          application/json: "{\n  \"statusCode\" : 200\n}\n"
+        passthroughBehavior: "when_no_match"
+        type: "mock"
+  /api/v3/metadata:
+    get:
+      responses: {}
+      security:
+      - AzureAuthorizer: []
+      x-amazon-apigateway-integration:
+        httpMethod: "POST"
+        uri: 
+          Fn::Sub: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/${MetadataArn}/invocations"
+        passthroughBehavior: "when_no_match"
+        type: "aws_proxy"
+    options:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS, GET'"
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,Authorization,X-Amz-Date,X-API-Key,X-Amz-Security-Token,Accept-Language'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+            responseTemplates:
+              application/json: "{}\n"
+        requestTemplates:
+          application/json: "{\n  \"statusCode\" : 200\n}\n"
+        passthroughBehavior: "when_no_match"
+        type: "mock"
+  /api/v1/rep:
+    get:
+      responses: {}
+      security:
+      - AzureAuthorizer: []
+      x-amazon-apigateway-integration:
+        httpMethod: "POST"
+        uri: 
+          Fn::Sub: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/${RepRoleArn}/invocations"
+        passthroughBehavior: "when_no_match"
+        type: "aws_proxy"
+    options:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS, GET'"
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,Authorization,X-Amz-Date,X-API-Key,X-Amz-Security-Token,Accept-Language'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+            responseTemplates:
+              application/json: "{}\n"
+        requestTemplates:
+          application/json: "{\n  \"statusCode\" : 200\n}\n"
+        passthroughBehavior: "when_no_match"
+        type: "mock"
+components:
+  schemas:
+    Empty:
+      title: "Empty Schema"
+      type: "object"
+  securitySchemes:
+    AzureAuthorizer:
+      type: "apiKey"
+      name: "Authorization"
+      in: "header"
+      x-amazon-apigateway-authtype: "custom"
+      x-amazon-apigateway-authorizer:
+        authorizerUri: 
+          Fn::Sub: "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/${AzureAuthorizerArn}/invocations"
+        authorizerResultTtlInSeconds: 300
+        identitySource: "method.request.header.Authorization"
+        type: "request"
