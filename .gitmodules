@@ -1,0 +1,3 @@
+[submodule "docs/guardian"]
+	path = docs/guardian
+	url = https://github.com/saintpaultinga/Guardian.git

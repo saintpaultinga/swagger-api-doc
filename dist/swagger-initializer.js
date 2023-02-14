@@ -7,7 +7,7 @@ window.onload = function() {
       {url: "swagger.yaml", name: "Pets Api documentation"},
       {url: "api-with-samples.yaml", name: "Just a sample Api"},
       {url: "another-api-file.yaml", name: "This is for demo"},
-      {url: "saintpaultinga/Guardian/blob/main/guardian.yaml", name: "This will be great"}
+      {url: "docs/guardian.yaml", name: "This will be great"}
     ],
     dom_id: '#swagger-ui',
     deepLinking: true,
